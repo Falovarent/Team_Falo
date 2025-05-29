@@ -7,8 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
-
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('preloader').style.display = 'none';
+  });
+</script>
 <body>
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
 
 <header>
   <img src="logo.png" alt="Team_Falo Logo" class="logo" />
