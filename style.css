@@ -84,3 +84,24 @@ header {
   flex-direction: column;
   justify-content: center;
 }
+.member-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.member {
+  text-align: center;
+  color: white;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
