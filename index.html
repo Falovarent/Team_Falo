@@ -93,7 +93,7 @@
     for (let i = 0; i < reveals.length; i++) {
       const windowHeight = window.innerHeight;
       const elementTop = reveals[i].getBoundingClientRect().top;
-      const revealPoint = 100;
+      const revealPoint = 300; // 👈 Trigger earlier
 
       if (elementTop < windowHeight - revealPoint) {
         reveals[i].classList.add('active');
@@ -104,7 +104,7 @@
   }
 
   window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll); // Trigger on load
+  window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
