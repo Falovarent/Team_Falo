@@ -161,4 +161,39 @@ button:hover {
   opacity: 1;
   transform: translateY(0);
 }
+:root {
+  --bg-color: linear-gradient(120deg, #ff0000, #0000ff);
+  --text-color: white;
+  --card-bg: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  background: var(--card-bg);
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+  --bg-color: #f0f0f0;
+  --text-color: #222;
+  --card-bg: rgba(0, 0, 0, 0.05);
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  font-weight: bold;
+}
 
