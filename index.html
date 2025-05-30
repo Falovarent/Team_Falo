@@ -7,119 +7,34 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
-<script>
-  window.addEventListener('load', () => {
-    document.getElementById('preloader').style.display = 'none';
-  });
-</script>
 <body>
-<div id="preloader">
-  <div class="spinner"></div>
-</div>
-
-<header>
-  <img src="logo1.png" alt="Team_Falo Logo" class="logo" />
-  <div class="title-text">
-    <h1>Welcome To The Website of Team_Falo</h1>
-    <p>CREATING COMICS</p>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
   </div>
-</header>
 
-<nav>
-  <a href="#about">About Us</a>
-  <a href="#projects">Comics</a>
-  <a href="#contact">Contact</a>
-  <a href="#members">Members</a>
- <button id="theme-toggle">🌙 Dark Mode</button>
-</nav>
-
-<section id="about" class="reveal">
-  <div class="card">
-    <h2>About Us</h2>
-    <p>
-      Hi! We Make Comics In The United Arab Emirates. Actually We just Make Comics When We Are Bored. 
-      The Comics Are Pretty Interesting. We Get Many Ideas From A Youtuber Named Alan Becker Who Is A Stickman Animator.
-    </p>
-  </div>
-</section>
-
-<section id="members">
-  <div class="card">
-  <h2>Members</h2>
-  <div class="members-container">
-    <div class="member-card reveal">
-      <img src="Falovarent.png" alt="Falovarent">
-      <p>Falovarent</p>
+  <!-- Header -->
+  <header>
+    <img src="logo1.png" alt="Team_Falo Logo" class="logo" />
+    <div class="title-text">
+      <h1>Welcome To The Website of Team_Falo</h1>
+      <p>CREATING COMICS</p>
     </div>
-    <div class="member-card reveal">
-      <img src="_XenoNix.png" alt="XenoNix">
-      <p>_XenoNix</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="projects" class="reveal">
-   <div class="card">  
-  <h2>Comics</h2>
-    <p>Our First Comic Will Be Released Soon. We Have Not Decided Its Name Yet</p>
-  </div>
-</section>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#projects">Comics</a>
+    <a href="#contact">Contact</a>
+    <a href="#members">Members</a>
+    <button id="theme-toggle">🌙 Dark Mode</button>
+  </nav>
 
-<section id="contact" class="reveal" >
-  <div class="card">
-    <h2>Contact Me</h2>
-    <p>If You Wanna Join Our Team, Click The Button For The Contact Details. Send Details About Yourself To This Email</p>
-    <button onclick="alert('venomf99@gmail.com')"> CLICK ME </button>
-  </div>
-</section>
-
-<section id="suggestion" class="reveal">
-  <div class="card">
-    <h2>Suggestion Box</h2>
-    <p>Have an idea or feedback? Let me know below!</p>
-    <form action="https://formsubmit.co/abdullahbinmahroof@gmail.com" method="POST">
-      <textarea name="suggestion" placeholder="Type your suggestion..." required></textarea>
-      <input type="hidden" name="_captcha" value="false">
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 Team_Falo. All rights reserved.</p>
-</footer>
-<script>
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-      const revealPoint = 300; // 👈 Trigger earlier
-
-      if (elementTop < windowHeight - revealPoint) {
-        reveals[i].classList.add('active');
-      } else {
-        reveals[i].classList.remove('active');
-      }
-    }
-  }
-
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
-</script>
-<script>
-  const toggleButton = document.getElementById('theme-toggle');
-  toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    if (document.body.classList.contains('light-mode')) {
-      toggleButton.textContent = '🌑 Dark Mode';
-    } else {
-      toggleButton.textContent = '🌙 Light Mode';
-    }
-  });
-</script>
-
-
-</body>
-</html>
+  <!-- Sections -->
+  <section id="about" class="reveal">
+    <div class="card">
+      <h2>About Us</h2>
+      <p>
+        Hi! We Make Comics In The United Arab Emirates. Actually We just Make Comics When We Are Bored. 
+        The Comics Are Pretty Interesting. We Get Many Ideas From A Youtuber Named Alan Becker
