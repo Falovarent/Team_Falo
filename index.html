@@ -109,6 +109,17 @@
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    if (document.body.classList.contains('light-mode')) {
+      toggleButton.textContent = '🌑 Dark Mode';
+    } else {
+      toggleButton.textContent = '🌙 Light Mode';
+    }
+  });
+</script>
 
 </body>
 </html>
