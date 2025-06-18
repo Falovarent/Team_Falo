@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>「 FaloVerse 」</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
- <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
   <style>
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #0e0e0e;
       color: #fff;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff3cac;
     }
 
     header {
@@ -49,30 +85,6 @@
       color: #ccc;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #ff3cac;
-    }
-
     section {
       min-height: 100vh;
       display: flex;
@@ -81,12 +93,12 @@
       padding: 5rem 2rem;
       opacity: 0;
       transform: translateY(50px);
+      transition: all 1s ease;
     }
 
     section.active {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 1s ease, transform 1s ease;
     }
 
     .card {
@@ -94,6 +106,7 @@
       padding: 2rem;
       border-radius: 16px;
       max-width: 800px;
+      width: 100%;
       box-shadow: 0 0 30px rgba(255, 60, 172, 0.2);
       transition: transform 0.3s;
     }
@@ -109,9 +122,35 @@
       font-size: 0.9rem;
       color: #999;
     }
+
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 8px;
+      border: none;
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff3cac;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff5fbd;
+    }
   </style>
 </head>
+
 <body>
+
+<div id="particles-js"></div>
 
 <nav>
   <a href="#about">About</a>
@@ -124,7 +163,7 @@
 <header>
   <img src="logo1.png" alt="Team_Falo Logo" class="logo">
   <h1>Creating Comics From Boredom To Creativity</h1>
-  <p>「  FaloVerse  」</p>
+  <p>「 FaloVerse 」</p>
 </header>
 
 <section id="about" class="reveal">
@@ -173,7 +212,29 @@
   &copy; 2025 Team_Falo. All rights reserved.
 </footer>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
+  // particles.js init
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#ff3cac" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ff3cac",
+        opacity: 0.2,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
+    }
+  });
+
+  // Scroll animation
   function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
     for (let i = 0; i < reveals.length; i++) {
@@ -186,9 +247,11 @@
       }
     }
   }
+
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>
 
 </body>
 </html>
+
