@@ -57,11 +57,11 @@ header {
 }
 
 header img.logo {
-  width: 20px;
-  max-width: 20vw;
+  width: 120px;
   margin-bottom: 1rem;
   filter: drop-shadow(0 0 10px #ff3cac);
 }
+
 
 header h1 {
   font-family: 'Playfair Display', serif;
