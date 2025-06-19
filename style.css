@@ -129,6 +129,18 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+nav .nav-logo {
+  height: 40px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
 
 button:hover {
   background-color: #ff5fbd;
