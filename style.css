@@ -145,3 +145,33 @@ nav {
 button:hover {
   background-color: #ff5fbd;
 }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+nav .nav-logo {
+  height: 40px;
+  margin-right: 20px;
+  filter: drop-shadow(0 0 5px #ff3cac);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff3cac;
+}
