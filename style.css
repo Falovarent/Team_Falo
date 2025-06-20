@@ -176,3 +176,9 @@ nav a {
 nav a:hover {
   color: #ff3cac;
 }
+.nav-logo {
+  height: 32px;
+  width: auto;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
