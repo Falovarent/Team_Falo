@@ -231,3 +231,45 @@ nav {
   color: #ff3cac;
   text-shadow: 0 0 8px #ff3cac;
 }
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.9);
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #444;
+}
+
+.brand-title {
+  font-family: 'Iceberg', cursive;
+  font-size: 1.8rem;
+  color: #ff3cac;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #ff3cac;
+  transition: transform 0.3s ease;
+}
+
+.brand-title:hover {
+  transform: scale(1.05);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff3cac;
+  text-shadow: 0 0 8px #ff3cac;
+}
+
