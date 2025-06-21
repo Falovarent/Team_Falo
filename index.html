@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>「 FaloVerse 」</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-  <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaloVerse</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
 
   <style>
+    /* Reset & Base */
     * {
       box-sizing: border-box;
-      scroll-behavior: smooth;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -23,57 +22,54 @@
       background-color: #0e0e0e;
       color: #fff;
       overflow-x: hidden;
-      position: relative;
     }
 
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
-
+    /* Navigation */
     nav {
+      background: rgba(10, 10, 10, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
       z-index: 1000;
+      border-bottom: 1px solid #333;
       backdrop-filter: blur(10px);
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
+    .brand-title {
+      font-family: 'Iceberg', cursive;
+      font-size: 1.8rem;
       color: #ff3cac;
+      text-shadow: 0 0 8px #ff3cac;
+      letter-spacing: 2px;
     }
 
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff3cac;
+      text-shadow: 0 0 6px #ff3cac;
+    }
+
+    /* Header */
     header {
       height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 5rem 2rem;
       text-align: center;
-      padding: 2rem;
     }
-
-    header img.logo {
-  width: 80px;
-  max-width: 20vw;
-  filter: drop-shadow(0 0 10px #ff3cac);
-}
 
     header h1 {
       font-family: 'Playfair Display', serif;
@@ -84,8 +80,10 @@
     header p {
       font-size: 1.2rem;
       color: #ccc;
+      margin-top: 1rem;
     }
 
+    /* Sections */
     section {
       min-height: 100vh;
       display: flex;
@@ -94,12 +92,12 @@
       padding: 5rem 2rem;
       opacity: 0;
       transform: translateY(50px);
-      transition: all 1s ease;
     }
 
     section.active {
       opacity: 1;
       transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
     .card {
@@ -108,14 +106,15 @@
       border-radius: 16px;
       max-width: 800px;
       width: 100%;
-      box-shadow: 0 0 30px rgba(255, 60, 172, 0.2);
-      transition: transform 0.3s;
+      box-shadow: 0 0 30px rgba(255, 60, 172, 0.15);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.01);
     }
 
+    /* Footer */
     footer {
       background: #111;
       padding: 2rem;
@@ -124,163 +123,443 @@
       color: #999;
     }
 
+    /* Form */
     textarea {
       width: 100%;
       padding: 1rem;
       border-radius: 8px;
+      background: #333;
+      color: #fff;
       border: none;
-      resize: vertical;
-      min-height: 100px;
+      margin-top: 1rem;
     }
 
     button {
       margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
       background-color: #ff3cac;
       color: white;
       border: none;
-      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #ff5fbd;
+      background-color: #ff63bb;
     }
-    .nav-content {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
-.nav-logo {
-  height: 32px;
-  width: auto;
-  margin-right: 1rem;
-  vertical-align: middle;
-}
-.nav-title {
-  font-family: 'Iceberg', sans-serif;
-  font-size: 1.5rem;
-  color: #ff3cac;
-  letter-spacing: 2px;
-  font-weight: bold;
-  margin-right: auto;
-  padding-left: 2rem;
-  text-shadow: 0 0 8px rgba(255, 60, 172, 0.6);
-  line-height: 1;
-}
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.8rem;
+      }
 
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand-title {
+        margin-bottom: 0.5rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<div id="particles-js"></div>
+  <nav>
+    <div class="brand-title">「 FaloVerse 」</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#members">Members</a>
+      <a href="#projects">Comics</a>
+      <a href="#contact">Contact</a>
+      <a href="#suggestion">Suggestion</a>
+    </div>
+  </nav>
 
-<nav>
-  <a href="#">「 FaloVerse 」</a>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#members">Members</a>
-  <a href="#projects">Comics</a>
-  <a href="#contact">Contact</a>
-  <a href="#suggestion">Suggestion</a>
-</nav>
+  <header id="home">
+    <h1>Creating Comics From Boredom To Creativity</h1>
+    <p>「  FaloVerse  」</p>
+  </header>
 
-<header id="home">
-  <img src="fv-logo.png" alt="Faloverse Logo" class="logo">
-  <h1>Creating Comics From Boredom To Creativity</h1>
-  <p>「  FaloVerse  」</p>
-</header>
+  <section id="about" class="reveal">
+    <div class="card">
+      <h2>About Us</h2>
+      <p>We create comics in the United Arab Emirates. Inspired by Alan Becker, our stickman-style comics are brought to life when creativity strikes.</p>
+    </div>
+  </section>
 
-<section id="about" class="reveal">
-  <div class="card">
-    <h2>About Us</h2>
-    <p>
-      We create comics in the United Arab Emirates. Inspired by Alan Becker, our stickman-style comics are brought to life when creativity strikes.
-    </p>
-  </div>
-</section>
+  <section id="members" class="reveal">
+    <div class="card">
+      <h2>Members</h2>
+      <p>Falovarent | _XenoNix</p>
+    </div>
+  </section>
 
-<section id="members" class="reveal">
-  <div class="card">
-    <h2>Members</h2>
-    <p>Falovarent | _XenoNix</p>
-  </div>
-</section>
+  <section id="projects" class="reveal">
+    <div class="card">
+      <h2>Comics</h2>
+      <p>Our first comic is coming soon. Stay tuned!</p>
+    </div>
+  </section>
 
-<section id="projects" class="reveal">
-  <div class="card">
-    <h2>Comics</h2>
-    <p>Our first comic is coming soon. Stay tuned!</p>
-  </div>
-</section>
+  <section id="contact" class="reveal">
+    <div class="card">
+      <h2>Contact Us</h2>
+      <p>Email us if you'd like to join the team.</p>
+      <button onclick="alert('venomf99@gmail.com')">Contact</button>
+    </div>
+  </section>
 
-<section id="contact" class="reveal">
-  <div class="card">
-    <h2>Contact Us</h2>
-    <p>Email us if you'd like to join the team.</p>
-    <button onclick="alert('venomf99@gmail.com')">Contact</button>
-  </div>
-</section>
+  <section id="suggestion" class="reveal">
+    <div class="card">
+      <h2>Suggestions</h2>
+      <form action="https://formsubmit.co/abdullahbinmahroof@gmail.com" method="POST">
+        <textarea name="suggestion" placeholder="Type your suggestion..." required></textarea>
+        <input type="hidden" name="_captcha" value="false" />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
-<section id="suggestion" class="reveal">
-  <div class="card">
-    <h2>Suggestions</h2>
-    <form action="https://formsubmit.co/abdullahbinmahroof@gmail.com" method="POST">
-      <textarea name="suggestion" placeholder="Type your suggestion..." required></textarea>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</section>
+  <footer>
+    &copy; 2025 FaloVerse. All rights reserved.
+  </footer>
 
-<footer>
-  &copy; 2025 Team_Falo. All rights reserved.
-</footer>
+  <!-- Scroll Reveal Script -->
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  // particles.js init
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#ff3cac" },
-      shape: { type: "circle" },
-      opacity: { value: 0.3 },
-      size: { value: 3 },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#ff3cac",
-        opacity: 0.2,
-        width: 1
-      },
-      move: { enable: true, speed: 2 }
-    }
-  });
-
-  // Scroll animation
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-      const revealPoint = 100;
-
-      if (elementTop < windowHeight - revealPoint) {
-        reveals[i].classList.add('active');
+        if (elementTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
       }
     }
-  }
 
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', revealOnScroll);
-</script>
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaloVerse</title>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(10, 10, 10, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-title {
+      font-family: 'Iceberg', cursive;
+      font-size: 1.8rem;
+      color: #ff3cac;
+      text-shadow: 0 0 8px #ff3cac;
+      letter-spacing: 2px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ff3cac;
+      text-shadow: 0 0 6px #ff3cac;
+    }
+
+    /* Header */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #fffcf2;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .card {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(255, 60, 172, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    /* Form */
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #333;
+      color: #fff;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      background-color: #ff3cac;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff63bb;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.8rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand-title {
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand-title">「 FaloVerse 」</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#members">Members</a>
+      <a href="#projects">Comics</a>
+      <a href="#contact">Contact</a>
+      <a href="#suggestion">Suggestion</a>
+    </div>
+  </nav>
+
+  <header id="home">
+    <h1>Creating Comics From Boredom To Creativity</h1>
+    <p>「  FaloVerse  」</p>
+  </header>
+
+  <section id="about" class="reveal">
+    <div class="card">
+      <h2>About Us</h2>
+      <p>We create comics in the United Arab Emirates. Inspired by Alan Becker, our stickman-style comics are brought to life when creativity strikes.</p>
+    </div>
+  </section>
+
+  <section id="members" class="reveal">
+    <div class="card">
+      <h2>Members</h2>
+      <p>Falovarent | _XenoNix</p>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="card">
+      <h2>Comics</h2>
+      <p>Our first comic is coming soon. Stay tuned!</p>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="card">
+      <h2>Contact Us</h2>
+      <p>Email us if you'd like to join the team.</p>
+      <button onclick="alert('venomf99@gmail.com')">Contact</button>
+    </div>
+  </section>
+
+  <section id="suggestion" class="reveal">
+    <div class="card">
+      <h2>Suggestions</h2>
+      <form action="https://formsubmit.co/abdullahbinmahroof@gmail.com" method="POST">
+        <textarea name="suggestion" placeholder="Type your suggestion..." required></textarea>
+        <input type="hidden" name="_captcha" value="false" />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 FaloVerse. All rights reserved.
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
+
+        if (elementTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+<!-- particles.js library -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<!-- Init script -->
+<script>
+  particlesJS("particles-js", {
+    particles: {
+      number: {
+        value: 80,
+        density: { enable: true, value_area: 800 }
+      },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: { enable: false }
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: { enable: false }
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: "none",
+        out_mode: "out"
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+</script>
+<div id="particles-js" style="position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
+</body>
+</html>
