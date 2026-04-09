@@ -1,203 +1,105 @@
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-}
-
+/* GENERAL */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0e0e0e;
-  color: #fff;
-  overflow-x: hidden;
-  position: relative;
+  margin: 0;
+  background: #000;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-#particles-js {
+/* INTRO */
+#intro {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.8);
-  display: flex;
+  background: black;
+  display: none;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
+  align-items: center;
+  z-index: 9999;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+#intro img {
+  width: 250px;
+  animation: blink 0.2s infinite;
 }
 
-nav a:hover {
-  color: #ff3cac;
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-header {
+/* HERO */
+.hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
+  padding-left: 40px;
 }
 
-header img.logo {
-  width: 120px;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px #ff3cac);
+.hero h1 {
+  font-size: 60px;
 }
 
-
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: #fffcf2;
+/* SECTION */
+.section {
+  padding: 100px 40px;
 }
 
-header p {
-  font-size: 1.2rem;
-  color: #ccc;
-}
-
-section {
-  min-height: 100vh;
+/* CARDS */
+.cards {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 2rem;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
-}
-
-section.active {
-  opacity: 1;
-  transform: translateY(0);
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .card {
-  background: #1e1e1e;
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 800px;
-  width: 100%;
-  box-shadow: 0 0 30px rgba(255, 60, 172, 0.2);
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.01);
-}
-
-footer {
-  background: #111;
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-textarea {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
-  border: none;
-  resize: vertical;
-  min-height: 100px;
-}
-
-button {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #ff3cac;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-nav .nav-logo {
-  height: 40px;
-  margin-right: 20px;
-  vertical-align: middle;
-}
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
-}
-
-button:hover {
-  background-color: #ff5fbd;
-}
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-}
-
-nav .nav-logo {
-  height: 20px;
-  margin-right: 20px;
-  filter: drop-shadow(0 0 5px #ff3cac);
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+  width: 300px;
+  padding: 20px;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
-nav a:hover {
-  color: #ff3cac;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
 }
-.nav-logo {
-  height: 32px;
-  width: auto;
-  margin-right: 1rem;
-  vertical-align: middle;
-}
-nav img.logo-nav {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-<nav>
-  <a href="#">「 FaloVerse 」</a>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#members">Members</a>
-  <a href="#projects">Comics</a>
-  <a href="#contact">Contact</a>
-  <a href="#suggestion">Suggestion</a>
-</nav>
 
+/* BUTTONS */
+.btn {
+  padding: 10px 20px;
+  border: 1px solid red;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+}
 
+.btn:hover {
+  background: red;
+  color: black;
+  box-shadow: 0 0 15px red;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* NAV BUTTON GROUP */
+.nav {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+/* PAGE SYSTEM */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
