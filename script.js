@@ -1,7 +1,4 @@
-<!-- ========================= -->
-<!--        script.js         -->
-<!-- ========================= -->
-function goTo(pageId) {
+function goTo(pageId, delay = 1500) {
   const intro = document.getElementById('intro');
 
   intro.style.display = 'flex';
@@ -9,7 +6,7 @@ function goTo(pageId) {
   setTimeout(() => {
     intro.style.display = 'none';
     showPage(pageId);
-  }, 1500);
+  }, delay);
 }
 
 function goBack(pageId) {
@@ -25,7 +22,7 @@ window.onload = () => {
   const intro = document.getElementById('intro');
   intro.style.display = 'flex';
 
- setTimeout(() => {
-  intro.style.display = 'none';
-  showPage(pageId);
-}, 1125);
+  setTimeout(() => {
+    intro.style.display = 'none';
+  }, 1500); // keep normal intro on load
+};
