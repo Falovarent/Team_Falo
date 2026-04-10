@@ -24,5 +24,5 @@ window.onload = () => {
 
   setTimeout(() => {
     intro.style.display = 'none';
-  }, 1500); // keep normal intro on load
+  }, 1500);
 };
