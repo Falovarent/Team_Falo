@@ -25,7 +25,7 @@ window.onload = () => {
   const intro = document.getElementById('intro');
   intro.style.display = 'flex';
 
-  setTimeout(() => {
-    intro.style.display = 'none';
-  }, 1500);
-};
+ setTimeout(() => {
+  intro.style.display = 'none';
+  showPage(pageId);
+}, 1125);
