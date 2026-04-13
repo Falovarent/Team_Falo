@@ -1,4 +1,4 @@
-function goTo(pageId, delay = 1500) {
+function goTo(pageId) {
   const intro = document.getElementById('intro');
 
   intro.style.display = 'flex';
@@ -6,7 +6,7 @@ function goTo(pageId, delay = 1500) {
   setTimeout(() => {
     intro.style.display = 'none';
     showPage(pageId);
-  }, delay);
+  }, 1500);
 }
 
 function goBack(pageId) {
