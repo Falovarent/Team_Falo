@@ -1,9 +1,27 @@
-/* GENERAL */
 body {
   margin: 0;
-  background: #000;
+  background: black;
   color: white;
   font-family: Arial, sans-serif;
+}
+
+/* CENTER EVERYTHING */
+.page {
+  display: none;
+  height: 100vh;
+  width: 100%;
+}
+
+.page.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* INNER CENTER BOX */
+.center {
+  text-align: center;
+  max-width: 500px;
 }
 
 /* INTRO */
@@ -19,7 +37,7 @@ body {
 }
 
 #intro img {
-  width: 250px;
+  width: 200px;
   animation: blink 0.2s infinite;
 }
 
@@ -29,33 +47,11 @@ body {
   100% { opacity: 1; }
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-left: 40px;
-}
-
-.hero h1 {
-  font-size: 60px;
-}
-
-/* SECTION */
-.section {
-  padding: 100px 40px;
-}
-
-/* CARDS */
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
+/* CARD */
 .card {
-  width: 300px;
+  margin: 20px auto;
   padding: 20px;
+  width: 100%;
   background: #0a0a0a;
   border: 1px solid #222;
   border-radius: 10px;
@@ -63,93 +59,27 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 25px red;
+  transform: translateY(-5px);
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
+  margin-top: 15px;
   padding: 10px 20px;
   border: 1px solid red;
   background: transparent;
   color: white;
   cursor: pointer;
-  margin-top: 15px;
   transition: 0.3s;
 }
 
 .btn:hover {
   background: red;
   color: black;
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 10px red;
 }
 
-.btn:active {
-  transform: scale(0.95);
-}
-
-/* NAV BUTTON GROUP */
 .nav {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-}
-
-/* PAGE SYSTEM */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-/* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-
-  /* HERO */
-  .hero {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  /* SECTIONS */
-  .section {
-    padding: 60px 20px;
-  }
-
-  /* CARDS */
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-  }
-
-  /* BUTTONS */
-  .nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 80%;
-    text-align: center;
-  }
-
-  /* INTRO LOGO */
-  #intro img {
-    width: 150px;
-  }
-}
-body {
-  overflow-x: hidden;
+  margin-top: 20px;
 }
