@@ -5,23 +5,24 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* CENTER EVERYTHING */
+/* PAGE CENTER */
 .page {
   display: none;
   height: 100vh;
-  width: 100%;
-}
-
-.page.active {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* INNER CENTER BOX */
+.page.active {
+  display: flex;
+}
+
+/* CENTER BOX */
 .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  max-width: 500px;
 }
 
 /* INTRO */
@@ -49,9 +50,9 @@ body {
 
 /* CARD */
 .card {
-  margin: 20px auto;
+  margin: 20px;
   padding: 20px;
-  width: 100%;
+  width: 250px;
   background: #0a0a0a;
   border: 1px solid #222;
   border-radius: 10px;
@@ -80,6 +81,33 @@ body {
   box-shadow: 0 0 10px red;
 }
 
+/* NAV */
 .nav {
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* MEMBERS ROW */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .nav {
+    flex-direction: column;
+  }
 }
